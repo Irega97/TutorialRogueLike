@@ -13,13 +13,14 @@ public abstract class MovingObject : MonoBehaviour
     private BoxCollider2D boxCollider; //Variable box collider
     private Rigidbody2D rb2D; //Variable rigidBody
 
-    private void Awake(){
+    //Protected Virtual para poder sobreescribirlos en la clase que herede de movingObject(jugador)
+    protected virtual void Awake(){
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         movementSpeed = 1f/moveTime;
     }
